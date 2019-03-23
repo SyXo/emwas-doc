@@ -1,230 +1,1173 @@
-<!DOCTYPE HTML><html><head><title>Poogle API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/raml2html/raml2html 7.0.0"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media="screen,projection"><style>
-        .badge {
-            text-transform: uppercase;
-            font-weight:bold !important;
-        }
+<!doctype html><html><head><title>Efficient Masturbation With Aggregated Search - API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="https://github.com/raml2html/raml2html 7.0.0"><link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700&amp;subset=latin-ext" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700&amp;subset=latin-ext" rel="stylesheet"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/vs2015.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script><style>
+			/*
+ * Variables
+ */
+/*
+ * General
+ */
+* {
+  margin: 0px;
+  padding: 0px; }
 
-        .badge i {
-            float: left;
-            margin-right: 0.2rem;
-            line-height:1.4rem;
-            font-size:1rem;
-            width:auto;
-        }
+body {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 1.0;
+  background: #ffffff; }
 
-        .badge-get {
-            background-color: #2196f3 !important;
-        }
+code {
+  font-family: "Fira Mono", monospace; }
 
-        .badge-post {
-            background-color: #4caf50 !important;
-        }
+a {
+  color: #1E88E5;
+  text-decoration: underline; }
 
-        .badge-delete {
-            background-color: #f44336 !important;
-        }
+a:hover {
+  text-decoration: none; }
 
-        .badge-put {
-            background-color: #ff9800 !important;
-        }
+/*
+ * Sidebar
+ */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  color: #54585b;
+  overflow: hidden; }
+  .sidebar__logo {
+    position: relative;
+    z-index: 100;
+    flex-shrink: 0;
+    padding: 30px 25px 20px 25px; }
+    .sidebar__logo__title {
+      font-weight: bold;
+      font-size: 1.3rem;
+      line-height: 1.1; }
+    .sidebar__logo__description {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.34;
+      padding-top: 6px; }
+    .sidebar__logo::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 25px;
+      right: 60%;
+      border-bottom: 3px solid #434d54; }
+  .sidebar__nav {
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+    overflow: auto;
+    padding: 30px 0px; }
 
-        .badge-patch {
-            background-color: #673ab7 !important;
-        }
+/*
+ * Nav section
+ */
+.nav-section {
+  margin-bottom: 30px; }
+  .nav-section__title {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    font-weight: normal;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    color: #54585b;
+    text-transform: uppercase;
+    padding: 0px 25px; }
+    .nav-section__title a {
+      color: #54585b;
+      text-decoration: none; }
 
-        .badge-head {
-            background-color: #222222 !important;
-        }
+/*
+ * Nav tree
+ */
+.nav-tree {
+  list-style: none; }
+  .nav-tree__item__label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: #54585b;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    padding: 6px 25px;
+    margin-bottom: 1px;
+    border-right: 3px solid transparent;
+    transition: background 0.3s, border 0.3s;
+    overflow: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+    .nav-tree__item__label:hover {
+      background: #eff7fd;
+      border-color: #2196F3; }
+    .nav-tree__item__label--togglable {
+      cursor: pointer; }
+    .nav-tree__item__label__name {
+      flex-grow: 1; }
+    .nav-tree__item__label::before {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 6px;
+      margin-right: 5px; }
+  .nav-tree__item--method-get .nav-tree__item__label::before {
+    content: '';
+    background-color: #1E88E5; }
+  .nav-tree__item--method-post .nav-tree__item__label::before {
+    content: '';
+    background-color: #009688; }
+  .nav-tree__item--method-put .nav-tree__item__label::before {
+    content: '';
+    background-color: #FF9800; }
+  .nav-tree__item--method-patch .nav-tree__item__label::before {
+    content: '';
+    background-color: #0097A7; }
+  .nav-tree__item--method-delete .nav-tree__item__label::before {
+    content: '';
+    background-color: #E53935; }
+  .nav-tree__item--method-head .nav-tree__item__label::before {
+    content: '';
+    background-color: #607D8B; }
+  .nav-tree__item--method-options .nav-tree__item__label::before {
+    content: '';
+    background-color: #9C27B0; }
+  .nav-tree__item:not(.nav-tree__item--collapsed) > .nav-tree__item__label .nav-tree__item__label__when-collapsed {
+    display: none; }
+  .nav-tree__item--collapsed > .nav-tree__item__label .nav-tree__item__label__when-not-collapsed {
+    display: none; }
+  .nav-tree__item--final .nav-tree__item__label {
+    font-size: 14px;
+    color: #1976D2; }
+  .nav-tree__item--level-1 > .nav-tree__item__label {
+    padding-left: 25px; }
+  .nav-tree__item--level-2 > .nav-tree__item__label {
+    padding-left: 45px; }
+  .nav-tree__item--level-3 > .nav-tree__item__label {
+    padding-left: 65px; }
+  .nav-tree__item--level-4 > .nav-tree__item__label {
+    padding-left: 85px; }
+  .nav-tree__item--level-5 > .nav-tree__item__label {
+    padding-left: 105px; }
+  .nav-tree__item--level-6 > .nav-tree__item__label {
+    padding-left: 125px; }
+  .nav-tree__item--level-7 > .nav-tree__item__label {
+    padding-left: 145px; }
+  .nav-tree__item--level-8 > .nav-tree__item__label {
+    padding-left: 165px; }
+  .nav-tree__item--level-9 > .nav-tree__item__label {
+    padding-left: 185px; }
+  .nav-tree__item--level-10 > .nav-tree__item__label {
+    padding-left: 205px; }
+  .nav-tree__item--collapsed .nav-tree {
+    display: none; }
 
-        .badge-options {
-            background-color: #616161 !important;
-        }
+.nav-section > .nav-tree {
+  padding-left: 0; }
 
-        .text-primary {
-            color: #ee6e73 !important;
-        }
+/*
+ * Content block
+ */
+.main-content {
+  position: relative;
+  z-index: 3;
+  background: #eef0f2;
+  margin-left: 320px;
+  min-height: 1000px;
+  box-shadow: 0px -4px 60px rgba(32, 36, 39, 0.4); }
 
-        .bg-primary {
-            background-color:#ee6e73 !important;
-        }
+/*
+ * Sections
+ */
+.section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; }
+  .section__content {
+    flex-grow: 1; }
+  .section__sidecode {
+    background: #50555b;
+    width: 380px;
+    box-sizing: border-box;
+    flex-shrink: 0; }
+    .section__sidecode--heading {
+      background: #575c63; }
+  .section--separated .section__content {
+    border-bottom: 1px solid #d6d9e0; }
+  .section--separated .section__sidecode {
+    border-bottom: 1px solid #5e646b; }
 
-        .tabs a {
-            color: #039be5 !important;
-        }
+.section-group .section:first-of-type .section__content,
+.section-group .section:first-of-type .section__sidecode {
+  padding-top: 40px; }
 
-        .tabs .indicator {
-            background-color: #039be5 !important;
-        }
+.section-group .section:last-of-type .section__content,
+.section-group .section:last-of-type .section__sidecode {
+  padding-bottom: 40px; }
 
-        .tabs.response a {
-            color: #4db6ac !important;
-        }
-        .tabs.response .indicator{
-            background-color: #4db6ac !important;
-        }
+.section-group__content:last-of-type .section:first-of-type .section__content,
+.section-group__content:last-of-type .section:first-of-type .section__sidecode {
+  padding-top: 0; }
 
-        .space-between {
-            justify-content: space-between;
-        }
+.section-group__content:last-of-type .section:last-of-type .section__content,
+.section-group__content:last-of-type .section:last-of-type .section__sidecode {
+  padding-bottom: 40px; }
 
-        .d-flex {
-            display:flex;
-        }
+.section-group--separated .section:last-of-type .section__content {
+  border-bottom: 1px solid #d6d9e0; }
 
-        .chip {
-            line-height: 22px;
-            font-size:15px;
-            height:22px;
-            margin-bottom:0;
-            border-radius:2px;
-            padding: 0 5px;
-            margin-left:5px;
-        }
+.section-group--separated .section:last-of-type .section__sidecode {
+  border-bottom: 1px solid #5e646b; }
 
-        ul.browser-default {
-            padding-left:20px;
-        }
-        ul.browser-default li {
-            margin-top:10px;
-        }
+.section-group.collapsible--collapsed .section-group__header .section__content {
+  padding-bottom: 40px;
+  border-bottom: 1px solid #d6d9e0; }
 
-        .example {
-            border: 1px solid #e0e0e0;
-        }
+.section-group.collapsible--collapsed .section-group__header .section__sidecode {
+  padding-bottom: 40px;
+  border-bottom: 1px solid #5e646b; }
 
-        .example pre {
-            padding: 8px;
-            margin: 0px;
-        }
+.container--content {
+  padding: 40px; }
 
-        .modal {
-            height: 80% !important;
-            max-height: 80% !important;
-            width: 60% !important;
-        }
-    </style></head><body><div class="section grey darken-4"><div class="container"><h3 class="white-text">Poogle API documentation <small class="white-text">version v1</small></h3><p class="white-text"></p></div></div><div class="container"><div class="section"><p>Poogle is a meta search engine that gather searches from different porn sites and display them into one only convivial interface. It allows you to find the porn you're looking for faster and gives you the direct link to the original videos. It is for now intended to work with a limited number of non-free big porn websites</p></div></div><div class="divider"></div><div class="container"><div class="section"><h5>/user</h5><ul class="collection"><li class="collection-item space-between d-flex"><span><span class="grey-text"></span> <span>/user</span></span> <span><a href="#user_get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a> <a href="#user_post" class="waves-effect waves-light modal-trigger"><span class="new badge badge-post" data-badge-caption="post"></span></a></span></li><div id="user_get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <strong><span class="parent"></span>/user</strong><p></p><p>Get the list of all the users of the system</p><p></p></div><div class="section"><ul class="tabs"><li class="tab active"><a href="#user_get_response">Response</a></li></ul><div id="user_get_response"><ul class="tabs response"><li class="tab"><a href="#user_get_response_200">200</a></li><li class="tab"><a href="#user_get_response_500">500</a></li></ul><div id="user_get_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>[
+.container--inner {
+  padding: 0 40px; }
+
+.container--inner-bpad {
+  padding: 0 40px 40px 40px; }
+
+.container--last {
+  padding: 0 40px 40px 40px; }
+
+.spacing--el-bot {
+  margin-bottom: 30px; }
+
+/*
+ * Collapsibles
+ */
+.collapsible__toggler {
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: color 0.3s; }
+  .collapsible__toggler:hover {
+    color: #1E88E5; }
+
+.collapsible--when-not-collapsed {
+  display: inline-block; }
+
+.collapsible--when-collapsed {
+  display: none; }
+
+.collapsible--collapsed .collapsible--when-not-collapsed {
+  display: none; }
+
+.collapsible--collapsed .collapsible--when-collapsed {
+  display: inline-block; }
+
+.collapsible--collapsed .collapsible__el {
+  display: none; }
+
+.collapsible--collapsed .collapsible__head {
+  margin-bottom: 0; }
+
+/*
+ * RTC
+ */
+.rtc {
+  line-height: 1.34;
+  font-size: 0.9rem;
+  /** Last element fix */ }
+  .rtc__title {
+    font-size: 32px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    font-weight: 500; }
+  .rtc__subtitle {
+    font-size: 19px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    padding-top: 30px; }
+  .rtc .rtc__description {
+    margin-bottom: 30px; }
+  .rtc__base-uri {
+    border-radius: 4px;
+    border: 1px solid #c2ceda;
+    line-height: 1.0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    margin-left: -10px;
+    margin-right: -10px; }
+    .rtc__base-uri__link {
+      display: inline-block;
+      line-height: 16px;
+      padding: 10px 12px; }
+    .rtc__base-uri__icon {
+      display: inline-block;
+      border-right: 1px solid #c2ceda;
+      font-size: 24px;
+      line-height: 24px;
+      width: 24px;
+      height: 24px;
+      padding: 6px;
+      color: #708090; }
+  .rtc h3 {
+    font-size: 19px;
+    line-height: 1.3;
+    margin-bottom: 14px;
+    padding-top: 10px;
+    font-weight: 500; }
+  .rtc p {
+    line-height: 1.34;
+    margin-bottom: 16px; }
+  .rtc ul {
+    margin-bottom: 16px;
+    padding-left: 22px; }
+    .rtc ul li {
+      margin-bottom: 10px; }
+    .rtc ul > li:last-item {
+      margin-bottom: 0; }
+  .rtc--final > *:last-child {
+    margin-bottom: 0; }
+
+/*
+ * Content group
+ */
+.content-group {
+  padding-bottom: 40px;
+  /* Titles */ }
+  .content-group.collapsible--collapsed {
+    padding-bottom: 20px; }
+  .content-group__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #54585b;
+    margin-bottom: 14px; }
+    .content-group__title--sticky {
+      margin-bottom: 10px; }
+    .content-group__title__label {
+      flex-grow: 1; }
+  .content-group__subtitle {
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.34;
+    flex-grow: 1;
+    margin-bottom: 10px;
+    padding-top: 20px; }
+  .content-group__description {
+    margin-bottom: 20px; }
+    .content-group__description--last {
+      margin-bottom: 0; }
+  .content-group > *:last-child {
+    margin-bottom: 0; }
+
+/*
+ * Record
+ */
+.record {
+  /* Header */
+  /* Tags */
+  /* Annotations */
+  /*
+	 * Secured By
+	 */
+  /* Request body override */ }
+  .record__header {
+    position: sticky;
+    top: 0; }
+    .record__header__title {
+      background: #434f56;
+      color: #ffffff;
+      padding: 16px 40px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-weight: 500;
+      font-size: 0.9rem; }
+    .record__header__method {
+      border-radius: 3px;
+      display: inline-block;
+      padding: 8px 10px;
+      min-width: 50px;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.8rem;
+      background: transparent;
+      border: 1px solid #ffffff; }
+    .record__header__label {
+      display: inline-block;
+      padding: 10px 10px;
+      flex-grow: 1;
+      font-weight: 300; }
+    .record__header__name {
+      font-family: monospace;
+      font-weight: normal; }
+    .record__header__altname {
+      display: inline-block;
+      font-weight: normal;
+      font-style: italic;
+      margin-right: 10px;
+      font-size: 0.8rem;
+      flex-grow: 1; }
+    .record__header__parent-url {
+      color: rgba(255, 255, 255, 0.9); }
+    .record__header__flags {
+      display: inline-block; }
+      .record__header__flags i {
+        margin-left: 4px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.25rem; }
+    .record__header .section__sidecode {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 16px 40px;
+      color: #ffffff; }
+  .record--method-get .record__header__title {
+    background-color: #1E88E5; }
+  .record--method-post .record__header__title {
+    background-color: #009688; }
+  .record--method-put .record__header__title {
+    background-color: #FF9800; }
+  .record--method-patch .record__header__title {
+    background-color: #0097A7; }
+  .record--method-delete .record__header__title {
+    background-color: #E53935; }
+  .record--method-head .record__header__title {
+    background-color: #607D8B; }
+  .record--method-options .record__header__title {
+    background-color: #9C27B0; }
+  .record__tags {
+    display: inline-block;
+    margin-bottom: 20px; }
+    .record__tags__item {
+      display: inline-block;
+      padding: 4px 6px;
+      margin: 0px 2px;
+      font-weight: normal;
+      font-size: 0.8rem;
+      padding: 4px 6px;
+      border-radius: 3px;
+      background: #444444;
+      color: #ffffff;
+      margin-right: 5px; }
+      .record__tags__item--bluegray {
+        background: #455A64; }
+      .record__tags__item--orange {
+        background: #F57C00; }
+      .record__tags__item--purple {
+        background: #6A1B9A; }
+      .record__tags__item--pink {
+        background: #AD1457; }
+  .record__annotations {
+    list-style: none; }
+    .record__annotations__item {
+      padding: 12px;
+      margin: 0px -12px 5px -12px;
+      border-radius: 3px;
+      background: #ffffff; }
+      .record__annotations__item:last-of-type {
+        margin-bottom: 0; }
+    .record__annotations__label {
+      display: inline-block;
+      font-weight: bold;
+      font-size: 0.9rem;
+      line-height: 1.3rem;
+      margin-right: 5px; }
+  .record__secured-by {
+    padding: 12px;
+    margin: 0px -12px 5px -12px;
+    border-radius: 3px;
+    background: #ffffff; }
+    .record__secured-by:last-of-type {
+      margin-bottom: 0; }
+    .record__secured-by__title {
+      font-size: 1em;
+      font-weight: bold;
+      line-height: 1.34;
+      flex-grow: 1; }
+      .record__secured-by__title a {
+        text-decoration: none; }
+      .record__secured-by__title__display-name {
+        color: #000000; }
+      .record__secured-by__title__name {
+        color: #1E88E5;
+        text-decoration: underline;
+        font-weight: 400;
+        font-style: italic; }
+      a:hover .record__secured-by__title__name {
+        text-decoration: none; }
+    .record__secured-by__description {
+      padding-top: 6px;
+      color: #444444;
+      font-size: 0.8rem; }
+    .record__secured-by__scopes-title {
+      font-weight: bold;
+      font-size: 0.9rem;
+      line-height: 1.3rem;
+      padding-top: 10px; }
+  .record__request-body .type__header,
+  .record__request-body .type__sidecode {
+    padding-top: 0; }
+  .record--collapsed .record__content {
+    display: none; }
+  .record .section__content .content-group:last-of-type,
+  .record .section__content .content-group.collapsible--collapsed:last-of-type {
+    padding-bottom: 0; }
+  .record__content .section-group:last-of-type .section:last-of-type .section__content, .record__content .section-group:last-of-type .section:last-of-type .section__sidecode {
+    border-bottom: none; }
+
+/*
+ * Box
+ */
+.box {
+  margin-bottom: 10px; }
+  .box__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 3px;
+    background: #f0f0f0; }
+    .box__header__title {
+      padding: 14px 15px;
+      flex-grow: 1;
+      font-weight: bold;
+      font-size: 1.0rem;
+      color: #2b2e31; }
+  .box__content {
+    border-radius: 0px 0px 4px 4px; }
+
+/*
+ * Tabs
+ */
+.tabs {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 0px 10px; }
+  .tabs__item {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    margin-right: 10px; }
+    .tabs__item a {
+      display: block;
+      border-bottom: 4px solid transparent;
+      color: #000000;
+      text-decoration: none;
+      padding: 16px 15px 10px 15px;
+      font-size: 14px;
+      font-weight: 500; }
+    .tabs__item a:hover {
+      border-bottom-color: #eeeeee; }
+    .tabs__item--active a {
+      border-bottom-color: #000000; }
+  .tabs__label {
+    display: block;
+    border-bottom: 4px solid transparent;
+    color: #000000;
+    padding: 16px 15px 10px 15px;
+    font-size: 14px;
+    font-weight: 500; }
+  .tabs__content {
+    display: none; }
+    .tabs__content--active {
+      display: block; }
+
+.record--method-get .tabs__item--active a,
+.record--method-get .tabs__item--active a:hover {
+  border-color: #1E88E5; }
+
+.record--method-post .tabs__item--active a,
+.record--method-post .tabs__item--active a:hover {
+  border-color: #009688; }
+
+.record--method-put .tabs__item--active a,
+.record--method-put .tabs__item--active a:hover {
+  border-color: #FF9800; }
+
+.record--method-patch .tabs__item--active a,
+.record--method-patch .tabs__item--active a:hover {
+  border-color: #0097A7; }
+
+.record--method-delete .tabs__item--active a,
+.record--method-delete .tabs__item--active a:hover {
+  border-color: #E53935; }
+
+.record--method-head .tabs__item--active a,
+.record--method-head .tabs__item--active a:hover {
+  border-color: #607D8B; }
+
+.record--method-options .tabs__item--active a,
+.record--method-options .tabs__item--active a:hover {
+  border-color: #9C27B0; }
+
+/*
+ * Table
+ */
+.table {
+  border: 0px none;
+  border-spacing: 0px 3px;
+  width: 100%;
+  width: calc(100% + 20px);
+  margin-left: -10px;
+  margin-right: -10px; }
+  .table th,
+  .table td {
+    padding: 7px 10px;
+    text-align: left;
+    font-size: 0.8rem;
+    background: #ffffff;
+    vertical-align: top;
+    line-height: 1.34; }
+    .table th .rtc,
+    .table td .rtc {
+      font-size: inherit; }
+  .table__head th,
+  .table__heading th {
+    color: #6b747f;
+    font-weight: 500;
+    font-size: 0.8rem;
+    background: transparent; }
+  .table__heading th {
+    font-size: 0.9rem;
+    padding-top: 14px;
+    padding-bottom: 8px; }
+  .table tbody tr > td:first-child,
+  .table tbody tr > th:first-child {
+    border-radius: 3px 0px 0px 3px; }
+  .table tbody tr > td:last-child,
+  .table tbody tr > th:last-child {
+    border-radius: 0px 3px 3px 0px; }
+  .table__head + .table__heading td,
+  .table__head + .table__heading th {
+    border-top: 1px solid #c3c7cc; }
+  .table__row--top-separated th,
+  .table__row--top-separated td {
+    border-top: 3px solid #a0b0bf; }
+  .table__row--heading th,
+  .table__row--heading td {
+    background: transparent; }
+  .table__head + .table__body .table__row--heading th,
+  .table__head + .table__body .table__row--heading td {
+    border-top: 1px solid #c3c7cc;
+    border-radius: 0; }
+  .table__col--name {
+    width: 25%; }
+  .table__col--type {
+    width: 10%; }
+  .table__col--description {
+    font-size: 0.8rem; }
+
+/*
+ * Property
+ */
+.property__prefix, .property__name {
+  font-family: "Fira Mono", monospace;
+  font-weight: normal; }
+
+.property__prefix {
+  color: #777777; }
+
+.property__display-name {
+  display: block;
+  font-weight: 400;
+  font-style: italic;
+  color: #333333;
+  padding-top: 6px; }
+
+.property__required {
+  color: #B71C1C;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 4px; }
+
+.property__description {
+  margin-bottom: 0.5em; }
+
+.property__attr {
+  margin-bottom: 0.5em;
+  border-top: 1px dotted #cccccc;
+  padding-top: 0.5em;
+  color: #333333; }
+  .property__attr__label {
+    display: inline-block;
+    vertical-align: top; }
+  .property__attr__val {
+    display: inline-block;
+    color: #000000;
+    font-weight: 500; }
+    .property__attr__val--pre {
+      font-family: "Fira Mono", monospace; }
+    .property__attr__val--list {
+      list-style: none;
+      margin-left: 4px; }
+      .property__attr__val--list li {
+        display: block;
+        margin-bottom: 0.5em; }
+      .property__attr__val--list li:last-child {
+        margin-bottom: 0; }
+
+.property__info > *:last-child,
+.property--standalone .property__info > *:last-child {
+  margin-bottom: 0; }
+
+.property__info > *:first-child,
+.property--standalone .property__info > *:first-child {
+  border-top: 0px none;
+  padding-top: 0; }
+
+.property a {
+  color: #1E88E5;
+  text-decoration: underline; }
+
+.property a:hover {
+  text-decoration: none; }
+
+.property--fixed-key .property__attr__label {
+  width: 25%; }
+
+.property--standalone .property__description,
+.property--standalone .property__attr {
+  margin-bottom: 0.8em; }
+
+.property--standalone .property__attr {
+  padding-top: 0.8em; }
+
+/*
+ * Highlighted block
+ */
+.highlight-block {
+  margin: 0px -12px 0px -12px;
+  padding: 12px;
+  line-height: 18px;
+  border-radius: 3px;
+  background: #ffffff;
+  font-size: 0.9rem; }
+  .highlight-block i.material-icons {
+    font-size: 16px;
+    padding: 1px;
+    vertical-align: top;
+    margin-right: 5px; }
+  .highlight-block strong {
+    font-weight: 400; }
+  .highlight-block code {
+    display: inline-block;
+    background: #50555b;
+    line-height: 14px;
+    padding: 3px 4px;
+    border-radius: 2px;
+    color: #ffffff;
+    font-weight: normal;
+    line-height: 1em;
+    font-size: 0.8rem;
+    vertical-align: baseline; }
+
+/*
+.record--method-get .highlight-block code { background-color: $methodColorPrimaryGet; }
+.record--method-post .highlight-block code { background-color: $methodColorPrimaryPost; }
+.record--method-put .highlight-block code { background-color: $methodColorPrimaryPut; }
+.record--method-patch .highlight-block code { background-color: $methodColorPrimaryPatch; }
+.record--method-delete .highlight-block code { background-color: $methodColorPrimaryDelete; }
+.record--method-head .highlight-block code { background-color: $methodColorPrimaryHead; }
+.record--method-options .highlight-block code { background-color: $methodColorPrimaryOptions; }
+*/
+/*
+ * Type
+ */
+.type__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-top: 30px; }
+  .type__header--with-description {
+    margin-bottom: 5px; }
+  .type__header--tpad {
+    padding-top: 20px; }
+
+.type__sidecode {
+  padding-top: 30px; }
+
+.type__title {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.34;
+  flex-grow: 1; }
+  .type__title a {
+    text-decoration: none; }
+
+.type__display-name {
+  color: #000000; }
+
+.type__name {
+  font-weight: normal;
+  font-style: italic; }
+
+a .type__name {
+  color: #1E88E5;
+  text-decoration: underline; }
+
+a:hover .type__name {
+  text-decoration: none; }
+
+.type__key {
+  display: inline-block;
+  padding: 6px 8px;
+  font-weight: normal;
+  border-radius: 3px;
+  border: 1px solid #adb3bb;
+  color: #50555b;
+  margin-left: 10px; }
+
+.type__description {
+  font-size: 0.9em;
+  margin-bottom: 12px;
+  padding-top: 8px; }
+
+.record--method-get .type__key {
+  border-color: #1E88E5;
+  color: #1E88E5; }
+
+.record--method-post .type__key {
+  border-color: #009688;
+  color: #009688; }
+
+.record--method-put .type__key {
+  border-color: #FF9800;
+  color: #FF9800; }
+
+.record--method-patch .type__key {
+  border-color: #0097A7;
+  color: #0097A7; }
+
+.record--method-delete .type__key {
+  border-color: #E53935;
+  color: #E53935; }
+
+.record--method-head .type__key {
+  border-color: #607D8B;
+  color: #607D8B; }
+
+.record--method-options .type__key {
+  border-color: #9C27B0;
+  color: #9C27B0; }
+
+/*
+ * Sidecode
+ */
+.sidecode__title {
+  font-size: 1em;
+  font-weight: normal;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #929faf;
+  line-height: 1.8rem; }
+
+.sidecode__subtitle {
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #ebf3fd;
+  margin-bottom: 10px; }
+
+.sidecode__description {
+  font-size: 0.9em;
+  font-weight: 300;
+  color: #ebf3fd;
+  margin-bottom: 10px; }
+
+.sidecode__space--small {
+  margin-bottom: 20px; }
+
+/*
+ * Code example
+ */
+.code-example {
+  color: #ffffff;
+  font-size: 0.8rem; }
+  .code-example .hljs {
+    padding: 0 0 16px 0;
+    background: transparent;
+    line-height: 1.2; }
+
+/*
+ * Status code
+ */
+.status-code::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px 8px 1px 0px;
+  border-radius: 5px;
+  background: #666666; }
+
+.status-code--1xx::before {
+  background: #546E7A; }
+
+.status-code--2xx::before {
+  background: #558B2F; }
+
+.status-code--3xx::before {
+  background: #2196F3; }
+
+.status-code--4xx::before {
+  background: #FB8C00; }
+
+.status-code--5xx::before {
+  background: #B71C1C; }
+
+/*
+ * Structured value
+ */
+.structured-value {
+  line-height: 1.3rem;
+  font-size: 0.9rem; }
+  .structured-value--value {
+    display: inline-block;
+    font-family: "Fira Mono", monospace;
+    font-size: 0.8rem; }
+  .structured-value--array {
+    display: block;
+    list-style: none;
+    padding-left: 14px; }
+  .structured-value__array-item:before {
+    display: block;
+    float: left;
+    content: '-';
+    color: #999999;
+    margin-right: 4px; }
+  .structured-value--object {
+    display: block;
+    list-style: none;
+    padding-left: 14px; }
+  .structured-value__key {
+    font-weight: 500;
+    color: #BF360C; }
+
+		</style><script type="text/javascript">
+			hljs.initHighlightingOnLoad();
+
+			/**
+ * Binds navigation children toggling
+ */
+function bindNavToggle() {
+
+	function bindItem(el) {
+
+		el.addEventListener("click", function() {
+
+			el.parentElement.classList.toggle("nav-tree__item--collapsed");
+
+		});
+
+	}
+
+	var links = document.querySelectorAll(".nav-tree__item__label--togglable");
+
+	for (var i = 0; i < links.length; i++)
+		bindItem( links.item(i) );
+
+}
+
+/**
+ * Binds collapsibles
+ */
+function bindCollapsibles() {
+
+	function bindItem(el) {
+
+		el.addEventListener("click", function() {
+
+			const targetId = el.getAttribute("data-target");
+			const targetEl = document.getElementById(targetId);
+
+			if (targetEl)
+				targetEl.classList.toggle("collapsible--collapsed");
+
+		});
+
+	}
+
+	var links = document.querySelectorAll(".collapsible__toggler");
+
+	for (var i = 0; i < links.length; i++)
+		bindItem( links.item(i) );
+
+}
+
+/**
+ * Binds tab components
+ */
+function bindTabs() {
+
+	function bindTabsEl(el) {
+
+		var links = el.querySelectorAll("a");
+
+		if (links.length === 0) return;
+
+		function activateTab(linkEl) {
+
+			for (var i = 0; i < links.length; i++) {
+
+				var itemEl = links.item(i);
+				var targetEl = document.getElementById(itemEl.href.split("#", 2)[1]);
+
+				if (!targetEl) {
+					console.warn("Tab container element '%s' not found.", itemEl.href.split("#", 2)[1]);
+					continue;
+				}
+
+				if (links.item(i) === linkEl) {
+					itemEl.parentElement.classList.add("tabs__item--active");
+					targetEl.classList.add("tabs__content--active");
+				} else {
+					itemEl.parentElement.classList.remove("tabs__item--active");
+					targetEl.classList.remove("tabs__content--active");
+				}
+
+			}
+
+		}
+
+		function bindLink(linkEl) {
+
+			linkEl.addEventListener("click", function(ev) {
+
+				ev.preventDefault();
+				activateTab(linkEl);
+				return false;
+
+			});
+
+		};
+
+		for (var i = 0; i < links.length; i++)
+			bindLink(links.item(i));
+
+		activateTab(links.item(0));
+
+	}
+
+	var tabEls = document.querySelectorAll(".tabs");
+
+	for (var i = 0; i < tabEls.length; i++)
+		bindTabsEl( tabEls.item(i) );
+
+}
+
+window.addEventListener("load", function() {
+
+	bindNavToggle();
+	bindCollapsibles();
+	bindTabs();
+
+});
+		</script></head><body id="top"><div class="sidebar"><div class="sidebar__logo"><p class="sidebar__logo__title">Efficient Masturbation With Aggregated Search</p><p class="sidebar__logo__description">API Documentation version <strong>1.0</strong></p></div><div class="sidebar__nav"><nav class="nav-section"><h2 class="nav-section__title"><a href="#intro">Intro</a></h2></nav><nav class="nav-section"><h2 class="nav-section__title"><a href="#resources">Resources</a></h2><ul class="nav-tree"><li class="nav-tree__item nav-tree__item--level-1 nav-tree__item--collapsed"><div class="nav-tree__item__label nav-tree__item__label--togglable"><i title="Expand" class="material-icons nav-tree__item__label__when-collapsed">chevron_right</i> <i title="Collapse" class="material-icons nav-tree__item__label__when-not-collapsed">expand_more</i> <span class="label">/search</span></div><ul class="nav-tree"><li class="nav-tree__item nav-tree__item--final nav-tree__item--level-2 nav-tree__item--method-get"><a class="nav-tree__item__label final" href="#resources:/search:get"><span class="label">GET</span></a></li></ul></li></ul></nav></div></div><div class="main-content"><article class="section section--separated" id="intro"><div class="section__content container container--content"><div class="rtc rtc--final"><h1 class="rtc__title">Efficient Masturbation With Aggregated Search <span class="version">v1.0</span></h1><p class="rtc__description">emwas is a meta search engine that gather searches from different porn sites and display them into one only convivial interface. It allows you to find the porn you're looking for faster and gives you the direct link to the original videos. It is for now intended to work with a limited number of non-free big porn websites</p><p class="rtc__base-uri"><span class="rtc__base-uri__icon"><i title="URL" class="material-icons">link</i></span> <a class="rtc__base-uri__link" href="https://api.emwas.co" target="_blank">https://api.emwas.co</a></p></div></div><div class="section__sidecode"></div></article><section><header class="section" id="resources"><div class="section__content container container--content rtc rtc--final"><h2 class="rtc__title">Resources</h2></div><div class="section__sidecode"></div></header><article class="record record--resource record--method-get" id="resources:/search:get"><header class="record__header section"><h3 class="record__header__title section__content"><span class="record__header__method">get</span> <span class="record__header__label"><span class="record__header__name"><span class="record__header__parent-url"></span><span class="record__header__rel-uri">/search</span></span></span></h3><div class="section__sidecode section__sidecode--heading"><span class="record__header__altname"></span> <span class="record__header__flags">&nbsp;</span></div></header><section class="record__content"><div class="section-group section-group--separated"><div class="section"><div class="section__content container container--inner"><div class="content-group"><div class="rtc rtc--final"><p>Performs a search on all the services and get a list of videos from that.</p></div></div><div class="content-group" id="resources:/search:get:params"><h3 class="content-group__title collapsible__toggler collapsible__head" data-target="resources:/search:get:params"><span class="content-group__title__label">Parameters</span> <i title="Expand" class="material-icons collapsible--when-collapsed">chevron_right</i> <i title="Collapse" class="material-icons collapsible--when-not-collapsed">expand_more</i></h3><table class="table collapsible__el"><thead class="table__head"><tr><th class="table__col--name">Parameter</th><th class="table__col--type">Type</th><th class="table__col--description">Description</th></tr></thead><thead class="table__heading"><tr><th class="table__col--title" colspan="3">Query</th></tr></thead><tbody class="table__body table__body--params"><tr class="property"><th class="table__col--name"><span class="property__prefix"></span><span class="property__name">q</span><span class="property__required">*</span></th><td class="table__col--type">string</td><td class="table__col--description property__info"><div class="property__description rtc rtc--final"><p>The free text search you would type on your porn site search engine. All porn site handle very well pornstar names. Some also finds pretty well if you type a category or something else.</p></div></td></tr></tbody></table></div></div><div class="section__sidecode"><pre class="container container--inner code-example"><code class="hljs bash">curl -X GET \
+  https://api.emwas.co/search?q=&lt;value&gt;</code></pre></div></div></div><div class="section-group section-group--separated record__response" id="resources:/search:get:response-200"><div class="section section-group__header"><div class="section__content container--inner"><h3 class="content-group__title content-group__title--sticky collapsible__toggler collapsible__head" data-target="resources:/search:get:response-200"><span class="content-group__title__label"><span class="status-code status-code--2xx">200 OK</span></span> <i title="Expand" class="material-icons collapsible--when-collapsed">chevron_right</i> <i title="Collapse" class="material-icons collapsible--when-not-collapsed">expand_more</i></h3><div class="content-group__description rtc rtc--final content-group__description--last collapsible__el"></div><div class="collapsible__el"></div></div><div class="section__sidecode"></div></div><div class="section-group__content collapsible__el"><div class="section type"><div class="section__content container--inner"><header class="type__header"><h4 class="type__title"><span class="type__display-name">application/json</span></h4><p class="type__key">application/json</p></header><div class="type__description property property__info"></div><table class="table"><thead class="table__head"><tr><th class="table__col--name">Parameter</th><th class="table__col--type">Type</th><th class="table__col--description">Description</th></tr></thead><tbody class="table__body table__body--type"><tr class="property"><th class="table__col--name"><span class="property__prefix"></span><span class="property__name">title</span><span class="property__required">*</span></th><td class="table__col--type">string</td><td class="table__col--description property__info"><div class="property__description rtc rtc--final"><p>The title of the scene.</p></div></td></tr><tr class="property"><th class="table__col--name"><span class="property__prefix"></span><span class="property__name">url</span><span class="property__required">*</span></th><td class="table__col--type">uri (string)</td><td class="table__col--description property__info"><div class="property__description rtc rtc--final"><p>The url of the scene on its original website.</p></div></td></tr><tr class="property"><th class="table__col--name"><span class="property__prefix"></span><span class="property__name">thumbnailUrl</span></th><td class="table__col--type">array [uri (string)]</td><td class="table__col--description property__info"><div class="property__description rtc rtc--final"><p>The list of thumbnail for the scenes on the original website.</p></div></td></tr><tr class="property"><th class="table__col--name"><span class="property__prefix"></span><span class="property__name">performers</span></th><td class="table__col--type">array (string)</td><td class="table__col--description property__info"><div class="property__description rtc rtc--final"><p>The list of the performer names declared on the scene by the original website. Guys are sometimes not declared by the sites (which is a pity), so you won&#39;t always have them.</p></div></td></tr><tr class="property"><th class="table__col--name"><span class="property__prefix"></span><span class="property__name">description</span></th><td class="table__col--type">string</td><td class="table__col--description property__info"><div class="property__description rtc rtc--final"><p>The description of the scene by the original website. Might be very long depending on the service and the scene.</p></div></td></tr><tr class="property"><th class="table__col--name"><span class="property__prefix"></span><span class="property__name">date</span><span class="property__required">*</span></th><td class="table__col--type">date</td><td class="table__col--description property__info"><div class="property__description rtc rtc--final"><p>The date the scene was posted. The format is the standard Javascript ISO8601 format.</p></div></td></tr><tr class="property"><th class="table__col--name"><span class="property__prefix"></span><span class="property__name">length</span></th><td class="table__col--type">integer</td><td class="table__col--description property__info"><div class="property__description rtc rtc--final"><p>The length of the video in seconds. Might not be extremely precise depending on the website since some of them display video length in minutes.</p></div></td></tr></tbody></table></div><div class="section__sidecode"><div class="type__sidecode"><div class="container--inner"><h3 class="sidecode__title">Response Body</h3><pre class="code-example"><code class="hljs json">[
   {
-    "id": 1,
-    "userName": "jeanmi",
-    "email": "jeanmi.const@example.com",
-    "services": [1, 2],
-    "receivesNews": false
+    "title": "Alex Grey Gets Split In Half From A Double Penetration",
+    "url": "https://www.julesjordan.com/trial/scenes/Alex-Grey-DP-Facial-Double-Penetration-Porn_vids.html",
+    "thumbnailUrl": [
+      "https://thumbs.julesjordan.com/trial/content//contentthumbs/56830.jpg",
+      "https://thumbs.julesjordan.com/trial/content//contentthumbs/56830.jpg",
+      "https://thumbs.julesjordan.com/trial/content//contentthumbs/56821.jpg",
+      "https://thumbs.julesjordan.com/trial/content//contentthumbs/56819.jpg",
+      "https://thumbs.julesjordan.com/trial/content//contentthumbs/56822.jpg",
+      "https://thumbs.julesjordan.com/trial/content//contentthumbs/56824.jpg",
+      "https://thumbs.julesjordan.com/trial/content//contentthumbs/56825.jpg"
+    ],
+    "performers": [
+      "Alex Grey",
+      "Jules Jordan",
+      "Chris Strokes"
+    ],
+    "description": "Alex Grey gets double-stuffed by Jules and Chris!  Alex Grey is a sexy spinner that can&#39;t get enough cock in her life. This blonde beauty is looking hot as fuck in her black lingerie with black stockings and high heels.  She shows off that tight body of hers before crawling over to the two cocks that are waiting for her.  She strokes and sucks them both and Jules and Chris rub and spank her all over.  Alex gets on her knees so she can pay better attention to those hard cocks then gives them a little strip show as she reveals her tight little pussy.  This horny slut gets right on those cocks, making sure to get each one of them in each of her warm holes. They flip her around as they fuck her pussy and ass for the deepest penetration possible.  Alex takes those cocks with ease and gets a gooey facial as her reward for a job well done!",
+    "date": "2018-02-07T00:00:00.000Z",
+    "length": 2160
   },
   {
-    "id": 2,
-    "userName": "john",
-    "email": "john.doe@example.com",
-    "services": [],
-    "receivesNews": true
+    "title": "Alex Grey&#39;s Teen Ass Is Open For Business",
+    "url": "https://www.julesjordan.com/trial/scenes/Alex-Grey-Anal-Facial-Swallowing-Manuel-Ferrara-Teen_vids.html",
+    "thumbnailUrl": [
+      "https://thumbs.julesjordan.com/trial/content//contentthumbs/52786.jpg"
+    ],
+    "performers": [
+      "Alex Grey",
+      "Manuel Ferrara"
+    ],
+    "description": "Alex Grey is flawless. This stunning specimen is a tight, petite sex machine. With flowing locks and eyes that beg you to fuck her, you cannot keep yours off of her. What makes Alex even sexier is her filthy desires - not only does this pretty teen want her perfect pussy pleased but she aches with more taboo desires. She gets off on sucking dick and even more when she opens her tight asshole up. Yes, this blonde girl is the stuff of wet dreams. Unbelievably sexy in her nude lingerie and thigh highs, she gets the fat-cock treatment she has been waiting for. Truly passionate and hardcore at the same time, her body drips with saliva to help ease her holes open. After a substantial fucking, she gets an even more substantial ass fucking. This pretty angel doesn&#39;t shy away from ass to mouth, since her booty juice probably tastes like honey. What a filthy, sexy creature! Alex Grey makes any guy lucky to be alive!",
+    "date": "2016-08-07T00:00:00.000Z",
+    "length": 1680
+  },
+  {
+    "title": "Alex Grey Glamour Model Takes It Up The Ass",
+    "url": "https://www.julesjordan.com/trial/scenes/Alex-Grey-Spinner-Teen-Anal-Facial_vids.html",
+    "thumbnailUrl": [
+      "https://thumbs.julesjordan.com/trial/content//contentthumbs/51677.jpg"
+    ],
+    "performers": [
+      "Alex Grey",
+      "Jules Jordan"
+    ],
+    "description": "Alex Grey is a pretty little dolly who is aching for Jules&#39; cock - but he&#39;s obviously even more eager for her tasty little parts! There&#39;s only some mesh and a couple of little snaps inhibiting her puffy pink pussy and once Jules gets his hands on her, those snaps don&#39;t last long. He can&#39;t wait to taste that fine young pussy and Grey succumbs to the pleasure as her she gets wetter and wetter. Next up is a return of the favor as sweet little Alex opens her mouth for some pretty throat fucking. On her knees she tilts that blonde head back and takes his cock all the way down her throat, balls deep! When she comes up for air she is sure to suck those balls too. What a perfect little cock-sucker she is. It&#39;s time for this glamour girl to get fucked hard and you&#39;ll watch her pussy cream for that cock! Whether she&#39;s riding or getting ridden, Alex looks hot getting deep-dicked and when Jules whips out one of his toys, you know what&#39;s coming. Her super tight butthole sucks that pretty wand inside it, bead by bead and slowly it comes back out but before she&#39;s ready for a nice fat cock inside that she takes one more huge toy. Then lucky Jules gets to plug her asshole and this anal-newbie takes it like a champ. She&#39;s relatively new to this ass-fucking game but Alex Grey is in it to win it and she takes it from every angle and sucks her sweet self off that fat cock like a good girl. All in a day&#39;s work, the angel-faced cutie takes a classic massive facial that won&#39;t even let her open her eyes and she swallows whatever she can!\n",
+    "date": "2016-05-05T00:00:00.000Z",
+    "length": 2100
+  },
+  {
+    "title": "Alex Grey Ripe Teen Playing With A Big Fat Cock",
+    "url": "https://www.julesjordan.com/trial/scenes/Alex-Grey-Teen-Big-Dick-Facial_vids.html",
+    "thumbnailUrl": [
+      "https://thumbs.julesjordan.com/trial/content//contentthumbs/51485.jpg"
+    ],
+    "performers": [
+      "Alex Grey",
+      "Manuel Ferrara"
+    ],
+    "description": "Ripe is right - Alex Grey is a fine, young specimen. What a cute little... wait, cute?! CUTE?! Alex is sick of being CUTE and Manuel is just a man who craves the sluttier things in life. After she slips into some lacy black number and thigh highs, she&#39;s prancing around like a slut beyond her years and her man&#39;s already hard cock grew three times that day! Her sexy little mouth tries to take all of that big dick but it&#39;s just too much to handle. It&#39;s time to open her young, ripe pussy and Manuel is able to bring out the inner whore of this teeny little blonde. He spanks her until her ass is read and makes her butthole gape with his mouth and fingers. Her pussy gets wetter and wetter the more he tends to her asshole with those fat fingers - good thing since his huge uncut cock could use some help gliding into that tight pink hole of hers. She dressed the part and she delivers a stellar slutty performance with her co-star - she may not get an academy award but she gets a hell of a prize to the face when she&#39;s done. Alex Grey is RIPE!",
+    "date": "2016-04-15T00:00:00.000Z",
+    "length": 2040
+  },
+  {
+    "title": "Alex Grey, 19 Year Old Teen Shows Off What A Tiny Mouth Can Do With A Big Cock",
+    "url": "https://www.julesjordan.com/trial/scenes/Alex-Grey-19-Year-Old-Teen-Petite-Big-Dick-Facial_vids.html",
+    "thumbnailUrl": [
+      "https://thumbs.julesjordan.com/trial/content//contentthumbs/51617.jpg"
+    ],
+    "performers": [
+      "Alex Grey",
+      "Markus Dupree"
+    ],
+    "description": "Alex Grey is a small teenage slut with an adorable little face. That face of hers is easy to imagine as that of an innocent gal next door - unattainable and pure. Good news for everyone is Alex Grey only looks innocent. What she really wants is pure - cock! She opens her tight little holes up for Dupree&#39;s fat pole and even says that this may be the hardest she has ever been fucked! Dupree spends some time eating her beautiful pussy and even makes Grey squirt like crazy and the fucking and sucking is all the more fun! He doesn&#39;t let up and she cums over and over again, asking how her pussy tastes before she finds out herself by sucking that fat, slick cock that comes right out of her. She&#39;s a good fucking girl with some sweet perky titties and just like a good girl, this one swallows. ",
+    "date": "2016-04-11T00:00:00.000Z",
+    "length": 1500
   }
 ]
-</code></pre></div></div></li></ul></div><div id="user_get_response_500"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>{
-  "errorCode": "serverError",
-  "errorMessage": "It seems the server encountered a problem. Check again later."
+</code></pre></div></div></div></div></div></div><div class="section-group section-group--separated record__response collapsible--collapsed" id="resources:/search:get:response-500"><div class="section section-group__header"><div class="section__content container--inner"><h3 class="content-group__title content-group__title--sticky collapsible__toggler collapsible__head" data-target="resources:/search:get:response-500"><span class="content-group__title__label"><span class="status-code status-code--5xx">500 Internal Server Error</span></span> <i title="Expand" class="material-icons collapsible--when-collapsed">chevron_right</i> <i title="Collapse" class="material-icons collapsible--when-not-collapsed">expand_more</i></h3><div class="content-group__description rtc rtc--final content-group__description--last collapsible__el"></div><div class="collapsible__el"></div></div><div class="section__sidecode"></div></div><div class="section-group__content collapsible__el"><div class="section type"><div class="section__content container--inner"><header class="type__header"><h4 class="type__title"><span class="type__display-name">application/json</span></h4><p class="type__key">application/json</p></header><div class="type__description property property__info"></div></div><div class="section__sidecode"><div class="type__sidecode"><div class="container--inner"><h3 class="sidecode__title">Response Body</h3><pre class="code-example"><code class="hljs json">{
+  "error": "Server error on getting results from Jules Jordan."
 }
-</code></pre></div></div></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><div id="user_post" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-post" data-badge-caption="post"></span> <strong><span class="parent"></span>/user</strong><p></p><p>Add a new user</p><p></p></div><div class="section"><ul class="tabs"><li class="tab active"><a href="#user_post_request">Request</a></li><li class="tab"><a href="#user_post_response">Response</a></li></ul><div id="user_post_request"><ul class="collection with-header"><li class="collection-header"><h5>Query Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><strong>email:</strong> <span>string</span>&nbsp;<span class="blue-text">(required)</span></li><li><strong>userName:</strong> <span>string</span>&nbsp;<span class="blue-text">(required)</span></li><li><strong>receivesNews:</strong> <span>boolean</span> | default: false<br>Whether or not the user receives news about the service (updates, improvements, ...)</li><li><strong>services:</strong> <span>(array of )</span><br>Array of services id.</li></ul></li></ul></div><div id="user_post_response"><ul class="tabs response"><li class="tab"><a href="#user_post_response_200">200</a></li><li class="tab"><a href="#user_post_response_400">400</a></li><li class="tab"><a href="#user_post_response_500">500</a></li></ul><div id="user_post_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>{
-  "userName": "jeanmi",
-  "email": "jeanmi.const@example.com",
-  "receivesNews": false,
-  "services": [1, 2]
-}
-</code></pre></div></div></li></ul></div><div id="user_post_response_400"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Examples</strong></p><p><strong>badParameter</strong>:<br></p><div class="example grey lighten-4"><pre><code>{
-  "errorCode": "badParameter",
-  "errorMessage": "Your request was understood by server but was not correct.",
-  "details": "Incorrect or unexpected arguments provided."
-}
-</code></pre></div><p><strong>emailTaken</strong>:<br></p><div class="example grey lighten-4"><pre><code>{
-  "errorCode": "emailTaken",
-  "errorMessage": "Your request was understood by server but was not correct.",
-  "details": "Email is already in use."
-}
-</code></pre></div></div></li></ul></div><div id="user_post_response_500"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>{
-  "errorCode": "serverError",
-  "errorMessage": "It seems the server encountered a problem. Check again later."
-}
-</code></pre></div></div></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div></ul></div><div class="section"><h5>/services</h5><ul class="collection"><li class="collection-item space-between d-flex"><span><span class="grey-text"></span> <span>/services</span></span> <span><a href="#services_get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a></span></li><div id="services_get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <strong><span class="parent"></span>/services</strong><p></p><p>Get all the currently availables services in the API</p><p></p></div><div class="section"><ul class="tabs"><li class="tab active"><a href="#services_get_response">Response</a></li></ul><div id="services_get_response"><ul class="tabs response"><li class="tab"><a href="#services_get_response_200">200</a></li><li class="tab"><a href="#services_get_response_500">500</a></li></ul><div id="services_get_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>[
-  {
-    "id": 1,
-    "name": "JulesJordan",
-    "baseUrl": "https://www.julesjordan.com/",
-    "searchUrl": "https://www.julesjordan.com/trial/search.php?x=0&amp;y=0&amp;query=",
-    "status": "ok"
-  },
-  {
-    "id": 2,
-    "name": "Tushy",
-    "baseUrl": "https://www.tushy.com",
-    "searchUrl": "https://www.tushy.com/search?q=",
-    "status": "ok"
-  },
-  {
-    "id": 3,
-    "name": "Brazzers",
-    "baseUrl": "https://www.brazzers.com",
-    "searchUrl": "https://www.brazzers.com/search/all/?q=",
-    "status": "broken"
-  }
-]
-</code></pre></div></div></li></ul></div><div id="services_get_response_500"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>{
-  "errorCode": "serverError",
-  "errorMessage": "It seems the server encountered a problem. Check again later."
-}
-</code></pre></div></div></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div></ul></div><div class="section"><h5>/search</h5><ul class="collection"><li class="collection-item space-between d-flex"><span><span class="grey-text"></span> <span>/search</span></span> <span><a href="#search_get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a></span></li><div id="search_get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <strong><span class="parent"></span>/search</strong><p></p><p>Performs a search on all the user&#39;s activated services and get a list of videos from that</p><p></p></div><div class="section"><ul class="tabs"><li class="tab active"><a href="#search_get_request">Request</a></li><li class="tab"><a href="#search_get_response">Response</a></li></ul><div id="search_get_request"><ul class="collection with-header"><li class="collection-header"><h5>Query Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><strong>category:</strong> <span>string</span></li><li><strong>freeSearch:</strong> <span>string</span><br>What the user would actually type in a search input. Can be combined with all the other parameters.</li><li><strong>performers:</strong> <span>(array of )</span><br>Porn performers wanted to be in the results.</li><li><strong>minDate:</strong> <span>date-only</span></li><li><strong>maxDate:</strong> <span>date-only</span></li><li><strong>minLength:</strong> <span>integer</span><br>Video minimum length in seconds</li><li><strong>maxLength:</strong> <span>integer</span><br>Video maximum length in seconds</li><li><strong>excludedWords:</strong> <span>(array of )</span><br>An array of words that will not be included into the results.</li></ul></li></ul></div><div id="search_get_response"><ul class="tabs response"><li class="tab"><a href="#search_get_response_200">200</a></li><li class="tab"><a href="#search_get_response_400">400</a></li><li class="tab"><a href="#search_get_response_500">500</a></li></ul><div id="search_get_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>[
-  {
-    "service": 2,
-    "performers": ["Keisha Grey", "Evelin Stone", "Manuel Ferrara"],
-    "title": "Sex With Our Biggest Fan",
-    "url": "https://www.vixen.com/sex-with-our-biggest-fan",
-    "thumbnailUrl": "https://secure2-images-vixen.ssl-cdn.com/TRIPPLE/100605/1512299878655/01_765x431.jpg?nvb=20180324123159&amp;nva=20180324153159&amp;hdl=-1&amp;hash=082eb304b4b2ff60a12af",
-    "description": "Keisha and Evelin have known each other all their lives so moving in together was a no-brainer. They have started their own cam show business and they are loving every minute. When one of their fans asks them for a live show and offers a good price, they decide to go with the flow.  For the amount of money he is willing to pay they are going to have some real fun.",
-    "date": "2017-12-05",
-    "length": 38.24,
-    "tags": []
-  },
-  {
-    "service": 5,
-    "title": "Fun by the Pool",
-    "description": "Enjoy all-natural busty porn star, Keisha Grey in her first mesmerizing virtual reality porn! You first see her swimming in a pool at the resort you both happen to be staying at. You try not to stare, but Keisha sees you anyway and towels off her sex...",
-    "performers": ["Keisha Grey"],
-    "url": "https://www.wankzvr.com/fun-by-the-pool-2345773",
-    "thumbnailUrl": "https://cdns-i.wankzvr.com/2/2345/2345773/cover/large.jpg",
-    "date": "2016-04-20",
-    "length": 42,
-    "tags": [
-      "VR",
-      "Big Cocks",
-      "Blowjob",
-      "Brunette",
-      "Couples",
-      "Cowgirl",
-      "Cum on Ass",
-      "Doggy Style",
-      "Hairy Pussy",
-      "Missionary",
-      "Reverse Cowgirl"
-    ]
-  }
-]
-</code></pre></div></div></li></ul></div><div id="search_get_response_400"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>{
-  "errorCode": "badParameter",
-  "errorMessage": "Your request was understood by server but was not correct.",
-  "details": "Incorrect or unexpected arguments provided."
-}
-</code></pre></div></div></li></ul></div><div id="search_get_response_500"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>{
-  "errorCode": "serverError",
-  "errorMessage": "It seems the server encountered a problem. Check again later."
-}
-</code></pre></div></div></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div></ul></div></div><script src="https://code.jquery.com/jquery-2.1.1.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script><script>
-        $(document).ready(function () {
-            $('.modal').modal({
-                ready: function()  {
-                    $('ul.tabs').tabs();
-                }
-            });
-        });
-
-        $(document).ready(function(){
-            $('ul.tabs').tabs();
-        });
-
-    </script></body></html>
+</code></pre></div></div></div></div></div></div></section></article><div class="section section--separated"><div class="section__content"></div><div class="section__sidecode"></div></div></section><section><header class="section" id="security-schemes"><div class="section__content container container--content rtc rtc--final"><h2 class="rtc__title">Security Schemes</h2></div><div class="section__sidecode"></div></header></section><section><header class="section" id="types"><div class="section__content container container--content rtc rtc--final"><h2 class="rtc__title">Types</h2></div><div class="section__sidecode"></div></header><div class="section section--separated"><div class="section__content"></div><div class="section__sidecode"></div></div></section></div></body></html>

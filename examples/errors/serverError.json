@@ -1,4 +1,3 @@
 {
-  "errorCode": "serverError",
-  "errorMessage": "It seems the server encountered a problem. Check again later."
+  "error": "Server error on getting results from Jules Jordan."
 }
