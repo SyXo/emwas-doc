@@ -10,12 +10,13 @@ install:
   - yarn
 
 script:
-  - npx raml2html --theme raml2html-modern-theme -o ./index.html -i ./api.raml
+  - mkdir docs && npx raml2html --theme raml2html-modern-theme -o ./index.html -i ./api.raml
 
 deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   keep-history: true
+  local-dir: ./docs
   on:
     branch: master
