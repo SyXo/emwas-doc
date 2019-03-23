@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "API Documentation of the Poogle project",
   "author": "Fabien Leite",
+  "license": "CC-BY-SA-4.0",
   "scripts": {
-    "build": "npx raml2html --theme raml2html-slate-theme -o ./index.html -i ./api.raml"
+    "build": "npx raml2html --theme raml2html-modern-theme -o ./index.html -i ./api.raml"
   },
   "devDependencies": {
     "raml2html": "^7.0.0",
