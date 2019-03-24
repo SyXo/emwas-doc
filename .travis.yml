@@ -10,8 +10,7 @@ install:
   - yarn
 
 script:
-  - mkdir docs && npx raml2html --theme raml2html-modern-theme -o ./docs/index.html -i ./api.raml
-  - sed -i -e 's/doctype/DOCTYPE/g' ./docs/index.html
+  - mkdir docs && yarn run build
 
 deploy:
   provider: pages
