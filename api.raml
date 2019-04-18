@@ -5,6 +5,30 @@ version: 1.0
 protocols:
   - https
 baseUri: https://api.emwas.co
+/services:
+  description: A module to list available services in the current state of the API.
+  get:
+    description: Get all the different services (porn sites) that you can search on.
+    responses:
+      200:
+        body:
+          application/json:
+            properties:
+              id:
+                type: number
+                description: The id of the service
+              name:
+                type: string
+                description: The common / canonical name of the website
+              baseUrl:
+                type: string
+                description: The URL where you can found this website
+            example: !include examples/services/servicesList.json
+      500:
+        body:
+          application/json:
+            example: !include examples/errors/serverError.json
+
 /search:
   description: |
     The main module of the application.
