@@ -49,6 +49,9 @@ baseUri: https://api.emwas.co
         body:
           application/json:
             properties:
+              service:
+                description: The service this video comes from (refer to /services for more info)
+                type: integer
               title:
                 description: The title of the scene.
                 type: string
